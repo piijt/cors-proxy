@@ -1,7 +1,7 @@
-[![Build Status](https://travis-ci.com/Rob--W/cors-anywhere.svg?branch=master)](https://travis-ci.com/Rob--W/cors-anywhere)
-[![Coverage Status](https://coveralls.io/repos/github/Rob--W/cors-anywhere/badge.svg?branch=master)](https://coveralls.io/github/Rob--W/cors-anywhere?branch=master)
 
 **CORS Anywhere** is a NodeJS proxy which adds CORS headers to the proxied request.
+
+DISCALIMER - THIS REPOSITORY IS BASED ON - https://github.com/Rob--W/cors-anywhere - GO THERE IF YOU WANT THE ORIGINAL SOURCE.
 
 The url to proxy is literally taken from the path, validated and proxied. The protocol
 part of the proxied URI is optional, and defaults to "http". If port 443 is specified,
@@ -38,10 +38,6 @@ Request examples:
 * `http://localhost:8080/` - Shows usage text, as defined in `lib/help.txt`
 * `http://localhost:8080/favicon.ico` - Replies 404 Not found
 
-Live examples:
-
-* https://cors-anywhere.herokuapp.com/
-* https://robwu.nl/cors-anywhere.html - This demo shows how to use the API.
 
 ## Documentation
 
@@ -49,9 +45,6 @@ Live examples:
 
 To use the API, just prefix the URL with the API URL. Take a look at [demo.html](demo.html) for an example.
 A concise summary of the documentation is provided at [lib/help.txt](lib/help.txt).
-
-**Note: as of February 2021, access to the demo server requires an opt-in**,
-see: https://github.com/Rob--W/cors-anywhere/issues/301
 
 If you want to automatically enable cross-domain requests when needed, use the following snippet:
 
@@ -89,10 +82,6 @@ jQuery.ajaxPrefilter(function(options) {
 The module exports `createServer(options)`, which creates a server that handles
 proxy requests. The following options are supported:
 
-* function `getProxyForUrl` - If set, specifies which intermediate proxy to use for a given URL.
-  If the return value is void, a direct request is sent. The default implementation is
-  [`proxy-from-env`](https://github.com/Rob--W/proxy-from-env), which respects the standard proxy
-  environment variables (e.g. `https_proxy`, `no_proxy`, etc.).  
 * array of strings `originBlacklist` - If set, requests whose origin is listed are blocked.  
   Example: `['https://bad.example.com', 'http://bad.example.com']`
 * array of strings `originWhitelist` - If set, requests whose origin is not listed are blocked.  
@@ -161,31 +150,8 @@ For example, to blacklist abuse.example.com and rate-limit everything to 50 requ
 except for my.example.com and my2.example.com (which may be unlimited), use:
 
 ```
-export PORT=8080
+export PORT=<PORT>
 export CORSANYWHERE_BLACKLIST=https://abuse.example.com,http://abuse.example.com
 export CORSANYWHERE_RATELIMIT='50 3 my.example.com my2.example.com'
 node server.js
 ```
-
-
-## License
-
-Copyright (C) 2013 - 2021 Rob Wu <rob@robwu.nl>
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of
-this software and associated documentation files (the "Software"), to deal in
-the Software without restriction, including without limitation the rights to
-use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
-of the Software, and to permit persons to whom the Software is furnished to do
-so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
