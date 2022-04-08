@@ -1,7 +1,7 @@
 
 **CORS Anywhere** is a NodeJS proxy which adds CORS headers to the proxied request.
 
-DISCALIMER - THIS REPOSITORY IS BASED ON - https://github.com/Rob--W/cors-anywhere - GO THERE IF YOU WANT THE ORIGINAL SOURCE.
+**DISCALIMER** - THIS REPOSITORY IS BASED ON - https://github.com/Rob--W/cors-anywhere - GO THERE IF YOU WANT THE ORIGINAL SOURCE.
 
 The url to proxy is literally taken from the path, validated and proxied. The protocol
 part of the proxied URI is optional, and defaults to "http". If port 443 is specified,
